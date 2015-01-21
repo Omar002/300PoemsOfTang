@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<!-- Bootstrap Theme-->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+	<!-- jQuery UI-->
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+	<!-- customize-->
+  <link rel="stylesheet" href="css/style.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.coursera.org/">
+        <span class="glyphicon glyphicon-home"></span>
+      </a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      
+        <button type="button" class="btn btn-info navbar-btn" data-toggle="modal" data-target="#myModal">
+          幫助
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">幫助</h4>
+              </div>
+              <div class="modal-body">
+                側邊欄是一個過濾器(filter)，至少在其中一個類別中點選按鈕，可以瀏覽符合這些條件的詩名。<br>
+                或是使用右邊的搜尋，可以輸入詩名.詩人，甚至是詩的片段。
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">關閉</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="詩名，作者，或一小段詩">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+  <div class="row">
+    <div class="col-md-2 sidebar">
+        <div id="accordion">
+
+          <h3>詩體</h3>
+          <div>
+            <button type="button" class="btn btn-default btn-lg btn-block poemtype">五言絕句</button>
+            <button type="button" class="btn btn-default btn-lg btn-block poemtype">五言律詩</button>
+            <button type="button" class="btn btn-default btn-lg btn-block poemtype">七言絕句</button>
+            <button type="button" class="btn btn-default btn-lg btn-block poemtype">七言律詩</button>
+          </div>
+          <h3>時期</h3>
+          <div>
+            <button type="button" class="btn btn-default btn-lg btn-block poet">初唐</button>
+            <button type="button" class="btn btn-default btn-lg btn-block poet">盛唐</button>
+            <button type="button" class="btn btn-default btn-lg btn-block poet">中唐</button>
+            <button type="button" class="btn btn-default btn-lg btn-block poet">晚唐</button>
+          </div>
+        </div> <!-- end accordion-->
+    </div> <!-- end sidebar-->
+
+    <!-- jumbotron -->
+    <div class="col-md-10 col-md-offset-2">
+      <div class="jumbotron">
+        <div class="container">
+          <h1>唐詩三百首</h1>
+          <p>This is a simple reader of 300 poems of Dynasty Tang</p>
+        </div>
+      </div>
+    <!-- name of poem-->
+      <div class="col-md-3 col-md-offset-2">
+        <div class="PoemName">
+          <h1>詩名</h1>
+        </div>
+      </div>
+    <!-- name of poet-->
+      <div class="col-md-2">
+        <div class="PoetName">
+          <h2>人名</h2>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end row -->
+  
+  <div class="row" id="poemcontent">
+    <div class="col-md-5 col-md-offset-2">
+      <div class="sentence" id="s1">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="sentence" id="s2">
+      </div>
+    </div>
+    <div class="col-md-5 col-md-offset-2">
+      <div class="sentence" id="s3">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="sentence" id="s4">
+      </div>
+    </div>
+    <div class="col-md-5 col-md-offset-2">
+      <div class="sentence" id="s5">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="sentence" id="s6">
+      </div>
+    </div>
+    <div class="col-md-5 col-md-offset-2">
+      <div class="sentence" id="s7">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="sentence" id="s8">
+      </div>
+    </div>
+  </div>
+    
+
+  
+  
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script>
+  $(document).ready(function() {
+    $(".poemtype").click(function() {
+      $(this).toggleClass("btn-primary");
+    });
+    
+    $(".poet").click(function() {
+      $(this).toggleClass("btn-info");
+    });
+    
+    $( "#accordion" ).accordion();
+    
+  });
+  $(function() {
+
+  });
+</script>
+  </body>
+</html>
