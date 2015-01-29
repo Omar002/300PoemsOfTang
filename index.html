@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>300 Poems of Tang</title>
 
     <!-- Bootstrap -->
 	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -108,66 +108,15 @@
     <div class="col-md-12">
       <div class="jumbotron">
         <div class="container ">
-          <h1>唐詩三百首</h1>
-          <p>This is a simple reader of 300 poems of Dynasty Tang</p>
+          <id="poem">
+            <h1></h1>
+          	<h2></h2>
         </div>
       </div>
-    <!-- name of poem-->
-      <div class="col-md-9">
-        <div class="PoemName">
-          <h1>詩名</h1>
-        </div>
-      </div>
-    <!-- name of poet-->
-      <div class="col-md-9">
-        <div class="PoetName">
-          <h2>人名</h2>
-        </div>
-      </div>
-    </div>
   </div> <!-- end row -->
   
   <div class="row" id="poemcontent">
-    <div class="col-md-5">
-      <div class="sentence" id="s1">
-        <h3>謝 公 最 小 偏 憐 女</h3>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="sentence" id="s2">
-        <h3>自 嫁 黔 婁 百 事 乖</h3>
-      </div>
-    </div>
-    <div class="col-md-5">
-      <div class="sentence" id="s3">
-        <h3>顧 我 無 衣 搜 藎 篋</h3>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="sentence" id="s4">
-        <h3>泥 他 沽 酒 拔 金 釵</h3>
-      </div>
-    </div>
-    <div class="col-md-5">
-      <div class="sentence" id="s5">
-        <h3>野 蔬 充 膳 甘 長 藿</h3>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="sentence" id="s6">
-        <h3>落 葉 添 薪 仰 古 槐</h3>
-      </div>
-    </div>
-    <div class="col-md-5">
-      <div class="sentence" id="s7">
-        <h3>今 日 俸 錢 過 十 萬</h3>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="sentence" id="s8">
-        <h3>與 君 營 奠 復 營 齋</h3>
-      </div>
-    </div>
+
   </div>
     
 
@@ -178,7 +127,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script>
-  $(document).ready(function() {
+$(document).ready(function() {
     $(".poemtype").click(function() {
       $(this).toggleClass("btn-primary");
     });
@@ -188,19 +137,38 @@
     });
     
     $( "#accordion" ).accordion();
+    
+    //sticky navbar
     var num = 200; //number of pixels before modifying styles
-
+    
     $(window).bind('scroll', function () {
-    if ($(window).scrollTop() > num) {
-        $('.menu').addClass('fixed');
-    } else {
-        $('.menu').removeClass('fixed');
-    }
-});
-  });
-  $(function() {
+      if ($(window).scrollTop() > num) {
+          $('.menu').addClass('fixed');
+      } else {
+          $('.menu').removeClass('fixed');
+      }
+    });
+    //end sticky navbar
+    
+    //clear page
+    $("#poemcontent").html('<div class="row" id="poemcontent"></div>')
 
-  });
+    //dynamically add sentence
+	$.getJSON("db/poems.json",function(result){
+		$("h1").html(result[0].poem);
+		$("h2").html(result[0].poet);
+		for(i = 0; i < result[0].sentence.length; i++)
+		{
+			if(i % 2 === 0)
+				$("#poemcontent").append("<div class='col-sm-6'><h3>"+result[0].sentence[i]+"<h3></div>");
+			else
+				$("#poemcontent").append("<div class='col-sm-2'><h3>"+result[0].sentence[i]+"<h3></div>");
+		}
+
+	});
+});
+
+
 </script>
   </body>
 </html>
