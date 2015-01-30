@@ -85,6 +85,10 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
+      <!--Make a Demo button-->
+      <button type="button" class="btn navbar-btn btn-default" id="btn-0">
+      	Change to "0"
+      </button>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
         <li class="dropdown">
@@ -148,23 +152,41 @@ $(document).ready(function() {
           $('.menu').removeClass('fixed');
       }
     });
-    //end sticky navbar
-    
-    //clear page
-    $("#poemcontent").html('<div class="row" id="poemcontent"></div>')
 
-    //dynamically add sentence
-	$.getJSON("db/poems.json",function(result){
-		$("h1").html(result[0].poem);
-		$("h2").html(result[0].poet);
-		for(i = 0; i < result[0].sentence.length; i++)
+    //clear page
+    $("#poemcontent").html('<div class="row" id="poemcontent"></div>');
+
+    //default poem
+	var count = 1;
+
+	//dynamically add sentence
+	var content = $.getJSON("db/poems.json",function(result){
+		$("h1").html(result[count].poem);
+		$("h2").html(result[count].poet);
+		for(i = 0; i < result[count].sentence.length; i++)
 		{
 			if(i % 2 === 0)
-				$("#poemcontent").append("<div class='col-sm-6'><h3>"+result[0].sentence[i]+"<h3></div>");
+				$("#poemcontent").append("<div class='col-sm-6'><h3>"+result[count].sentence[i]+"<h3></div>");
 			else
-				$("#poemcontent").append("<div class='col-sm-2'><h3>"+result[0].sentence[i]+"<h3></div>");
+				$("#poemcontent").append("<div class='col-sm-2'><h3>"+result[count].sentence[i]+"<h3></div>");
 		}
+	});
 
+	//click function
+	$("#btn-0").click(function() {
+		count = 0;
+		$("#poemcontent").html('<div class="row" id="poemcontent"></div>');
+		$.getJSON("db/poems.json",function(result){
+			$("h1").html(result[count].poem);
+			$("h2").html(result[count].poet);
+			for(i = 0; i < result[count].sentence.length; i++)
+			{
+				if(i % 2 === 0)
+					$("#poemcontent").append("<div class='col-sm-6'><h3>"+result[count].sentence[i]+"<h3></div>");
+				else
+					$("#poemcontent").append("<div class='col-sm-2'><h3>"+result[count].sentence[i]+"<h3></div>");
+			}
+		});
 	});
 });
 
