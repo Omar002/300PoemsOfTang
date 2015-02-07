@@ -154,18 +154,21 @@ $(document).ready(function() {
     $("#poemcontent").html('<div class="row" id="poemcontent"></div>')
 
     //dynamically add sentence
+    var data;
 	$.getJSON("db/poems.json",function(result){
-		$("h1").html(result[0].poem);
+        data = result;
+        $("h1").html(result[0].poem);
 		$("h2").html(result[0].poet);
-		for(i = 0; i < result[0].sentence.length; i++)
-		{
-			if(i % 2 === 0)
-				$("#poemcontent").append("<div class='col-sm-6'><h3>"+result[0].sentence[i]+"<h3></div>");
-			else
-				$("#poemcontent").append("<div class='col-sm-2'><h3>"+result[0].sentence[i]+"<h3></div>");
+		for(i = 0; i < result[0].sentence.length; i+=2)
+        {
+            $("#poemcontent").append("<div id='padding' class='col-lg-1 col-md-1 visible-lg-1 visible-md-1 hidden-xs hidden-sm'><h3>padding</h3></div>");
+            $("#poemcontent").append("<div class='col-lg-3 col-md-3 col-xs-12'><h3>"+result[0].sentence[i]+"</h3></div>");
+            $("#poemcontent").append("<div class='col-lg-3 col-md-3 col-xs-12'><h3>"+result[0].sentence[i+1]+"</h3></div>");
+            $("#poemcontent").append("<div id='padding' class='col-lg-5 col-md-5 visible-lg-5 visible-lg-5 hidden-xs hidden-sm'><h3>padding</h3></div>");
 		}
-
 	});
+    
+		
 });
 
 
