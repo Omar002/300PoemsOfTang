@@ -150,8 +150,7 @@ $(document).ready(function() {
     });
     //end sticky navbar
     
-    //clear page
-    $("#poemcontent").html('<div class="row" id="poemcontent"></div>')
+
 
     //dynamically add sentence
     var data;
@@ -161,16 +160,31 @@ $(document).ready(function() {
 		$("h2").html(result[0].poet);
 		for(i = 0; i < result[0].sentence.length; i+=2)
         {
-            $("#poemcontent").append("<div id='padding' class='col-lg-1 col-md-1 visible-lg-1 visible-md-1 hidden-xs hidden-sm'><h3>padding</h3></div>");
-            $("#poemcontent").append("<div class='col-lg-3 col-md-3 col-xs-12'><h3>"+result[0].sentence[i]+"</h3></div>");
-            $("#poemcontent").append("<div class='col-lg-3 col-md-3 col-xs-12'><h3>"+result[0].sentence[i+1]+"</h3></div>");
-            $("#poemcontent").append("<div id='padding' class='col-lg-5 col-md-5 visible-lg-5 visible-lg-5 hidden-xs hidden-sm'><h3>padding</h3></div>");
+            $("#poemcontent").append('<div class="row">');
+                $("#poemcontent").append("<div class='col-lg-offset-1 col-lg-3 col-md-3 col-xs-12'><h3>"+result[0].sentence[i]+"</h3></div>");
+                $("#poemcontent").append("<div class='col-lg-3 col-md-3 col-xs-12'><h3>"+result[0].sentence[i+1]+"</h3></div>");
+            $("#poemcontent").append('</div>');
 		}
 	});
     
 		
 });
 
+function changeContent(id) {
+    
+    //clear page
+    $("#poemcontent").html('<div class="row" id="poemcontent"></div>')
+    
+    $("h1").html(data[id].poem);
+    $("h2").html(data[id].poet);
+    for(i = 0; i < data[id].sentence.length; i+=2)
+    {
+        $("#poemcontent").append('<div class="row">');
+            $("#poemcontent").append("<div class='col-lg-offset-1 col-lg-3 col-md-3 col-xs-12'><h3>"+data[id].sentence[i]+"</h3></div>");
+            $("#poemcontent").append("<div class='col-lg-3 col-md-3 col-xs-12'><h3>"+data[id].sentence[i+1]+"</h3></div>");
+        $("#poemcontent").append('</div>');
+    }   
+}
 
 </script>
   </body>
